@@ -1,12 +1,10 @@
-import itertools
-
-
 def solution(d, budget):
-    count = 0
-    for i in range(1, len(d) + 1):
-        case = list(itertools.permutations(d, i))
-        for j in case:
-            if sum(j) <= budget:
-                count += 1
-                break
-    return count
+    answer = 0
+    for i in sorted(d):
+        budget -= i
+        if budget < 0:
+            break
+        else:
+            answer += 1
+    return answer
+
