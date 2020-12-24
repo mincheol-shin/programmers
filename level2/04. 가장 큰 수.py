@@ -2,11 +2,12 @@ from itertools import permutations
 
 
 def solution(numbers):
-    answer = []
-
-    # 시간 초과
-    # idea : 앞자리 숫자를 비교?
+    max_num = 0
+    # max 함수를 제거
+    # 시간 초과 (시간 복잡도가 똑같을 것)
     for i in permutations(numbers):
-        answer.append("".join(list(map(str, list(i)))))
+        num = int("".join(list(map(str, list(i)))))
+        if max_num < num:
+            max_num = num
+    return str(max_num)
 
-    return str(max(answer))
